@@ -41,8 +41,10 @@
  function ready(fn){if(document.readyState!=='loading')fn();else document.addEventListener('DOMContentLoaded',fn);}
  ready(function(){
   intro=document.getElementById('intro');el=document.getElementById('tw-txt');
+  var navEntry=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0])||null;
+  var isReload=navEntry?navEntry.type==='reload':false;
   var seen=false;try{seen=sessionStorage.getItem('cmIntroSeen')==='1';}catch(e){}
-  if(seen){intro.remove();return;}
+  if(seen&&!isReload){intro.remove();return;}
   try{sessionStorage.setItem('cmIntroSeen','1');}catch(e){}
   document.getElementById('hero-w').style.visibility='hidden';
   intro.addEventListener('click',finish);
