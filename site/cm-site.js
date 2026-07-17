@@ -6,14 +6,13 @@ var hd=document.createElement('header');hd.className='hd';
 hd.innerHTML='<div class="hd__in">'+
 '<a href="index.html" class="wm hd__wm">casa<b>mkali</b><span class="dot">.</span></a>'+
 '<nav class="desk">'+
-'<div><a class="nl'+on('home')+'" href="index.html">home</a></div>'+
 '<div><a class="nl'+on('nn')+'" href="n-n.html">n+n</a><div class="dd"><a href="natasha.html">natasha</a><a href="nikki.html">nikki</a></div></div>'+
 '<div><a class="nl'+on('lab')+'" href="the-lab.html">the lab</a><div class="dd"><a href="the-team.html">the team</a><a href="ai-services.html">ai services</a><a href="work-with-us.html">work with us</a></div></div>'+
 '<div><a class="nl'+on('projects')+'" href="projects.html">projects</a></div>'+
 '</nav>'+
 '<div class="hd__cta"><a href="work-with-us.html" class="btn">work with us</a>'+
 '<button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></div>'+
-'<nav class="mob" id="mob"><a href="index.html">home</a><a href="n-n.html">n+n</a><a href="natasha.html">— natasha</a><a href="nikki.html">— nikki</a><a href="the-lab.html">the lab</a><a href="the-team.html">— the team</a><a href="ai-services.html">— ai services</a><a href="projects.html">projects</a><a href="work-with-us.html">work with us</a></nav>';
+'<nav class="mob" id="mob"><a href="n-n.html">n+n</a><a href="natasha.html">— natasha</a><a href="nikki.html">— nikki</a><a href="the-lab.html">the lab</a><a href="the-team.html">— the team</a><a href="ai-services.html">— ai services</a><a href="projects.html">projects</a><a href="work-with-us.html">work with us</a></nav>';
 document.body.insertBefore(hd,document.body.firstChild);
 
 var ft=document.createElement('footer');ft.className='ft';
