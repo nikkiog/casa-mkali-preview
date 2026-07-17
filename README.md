@@ -2,16 +2,16 @@
 
 Live site: **https://casamkali.com** (GitHub Pages; every push to main deploys in ~1 min)
 
-Shared working repo for the Casa Mkali site (Nikki + Natasha). Every push to `main`
-auto-deploys the live preview via GitHub Pages (~1 minute).
+Shared working repo for the Casa Mkali site (Nikki + Natasha).
 
 ## Structure
-- `site/` — the website pages (static HTML/CSS/JS, no build step)
-  - `cm-site.css` — the brand system (ink `#0E0E0E` / flame `#FC4B2E` / bone `#F1EFE8`, Helvetica Neue + Jost)
-  - `cm-site.js` — injects the shared header/footer on every page + behaviors (nav, cycle word, reveals)
-  - pages: `index` · `n-n` · `natasha` · `nikki` · `the-lab` · `the-team` · `ai-services` · `projects` · `work-with-us`
+- Pages live at the repo root (static HTML/CSS/JS, no build step):
+  `index` · `n-n` · `natasha` · `nikki` · `the-lab` · `the-team` · `ai-services` · `projects` · `work-with-us`
+- `cm-site.css` — the brand system (ink `#0E0E0E` / flame `#FC4B2E` / bone `#F1EFE8`, Helvetica Neue + Jost)
+- `cm-site.js` — injects the shared header/footer on every page + behaviors (nav, cycle word, reveals)
 - `uploads/` — photography (B&W treatment applied in CSS, files are color)
-- `index.html` (root) — redirect to `site/`
+- `site/` — redirect stubs only, kept so old preview links still work
+- `CNAME` — the custom domain (don't delete)
 
 Design source of truth for look & feel: the "Casa Mkali Design System" project on claude.ai/design.
 
