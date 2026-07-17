@@ -24,7 +24,6 @@ Design source of truth for look & feel: the "Casa Mkali Design System" project o
 - Calendly embed on `work-with-us.html` (placeholder box)
 - Lab rates on `the-lab.html` (all `$[X]`)
 - Nikki bio: custom SaaS credential line (`[TODO]` in `nikki.html`)
-- Team portraits (`the-team.html`)
-- Projects page is HIDDEN (nav/footer links removed, page redirects home) until imagery is ready — restore with `git checkout ae53aec -- projects.html` and re-add the nav/footer links in `cm-site.js`
+- Project imagery (`projects.html` — tiles are empty drop-slots with `[client · project]` captions)
 - Social links in footer (`cm-site.js`, currently `#`)
 - Real domain + production hosting when ready

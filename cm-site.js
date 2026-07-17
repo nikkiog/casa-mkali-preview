@@ -8,10 +8,11 @@ hd.innerHTML='<div class="hd__in">'+
 '<nav class="desk">'+
 '<div><a class="nl'+on('nn')+'" href="n-n.html">n+n</a><div class="dd"><a href="natasha.html">natasha</a><a href="nikki.html">nikki</a></div></div>'+
 '<div><a class="nl'+on('lab')+'" href="the-lab.html">the lab</a><div class="dd"><a href="the-team.html">the team</a><a href="ai-services.html">ai services</a><a href="work-with-us.html">work with us</a></div></div>'+
+'<div><a class="nl'+on('projects')+'" href="projects.html">projects</a></div>'+
 '</nav>'+
 '<div class="hd__cta"><a href="work-with-us.html" class="btn">work with us</a>'+
 '<button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button></div></div>'+
-'<nav class="mob" id="mob"><a href="n-n.html">n+n</a><a href="natasha.html">— natasha</a><a href="nikki.html">— nikki</a><a href="the-lab.html">the lab</a><a href="the-team.html">— the team</a><a href="ai-services.html">— ai services</a><a href="work-with-us.html">work with us</a></nav>';
+'<nav class="mob" id="mob"><a href="n-n.html">n+n</a><a href="natasha.html">— natasha</a><a href="nikki.html">— nikki</a><a href="the-lab.html">the lab</a><a href="the-team.html">— the team</a><a href="ai-services.html">— ai services</a><a href="projects.html">projects</a><a href="work-with-us.html">work with us</a></nav>';
 document.body.insertBefore(hd,document.body.firstChild);
 
 var ft=document.createElement('footer');ft.className='ft';
@@ -19,7 +20,7 @@ ft.innerHTML='<div class="ft__row"><div>'+
 '<div class="wm ft__wm">casa<b>mkali</b><span class="flame">.</span></div>'+
 '<p class="ft__tag">a consultancy at the intersection of marketing, business development, creative, and go-to-market.</p></div>'+
 '<div class="ft__cols">'+
-'<div class="ft__col"><h4>mkali</h4><a href="n-n.html">n+n</a><a href="the-lab.html">the lab</a><a href="ai-services.html">ai services</a></div>'+
+'<div class="ft__col"><h4>mkali</h4><a href="n-n.html">n+n</a><a href="the-lab.html">the lab</a><a href="ai-services.html">ai services</a><a href="projects.html">projects</a></div>'+
 '<div class="ft__col"><h4>connect</h4><a href="work-with-us.html">work with us</a><a href="mailto:holler@casamkali.com">holler@casamkali.com</a></div>'+
 '<div class="ft__col"><h4>follow</h4><a href="#">instagram</a><a href="#">substack</a><a href="#">linkedin</a></div>'+
 '</div></div>'+
