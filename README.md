@@ -1,6 +1,6 @@
 # casa mkali — website
 
-Live preview: **https://nikkiog.github.io/casa-mkali-preview/**
+Live site: **https://casamkali.com** (GitHub Pages; every push to main deploys in ~1 min)
 
 Shared working repo for the Casa Mkali site (Nikki + Natasha). Every push to `main`
 auto-deploys the live preview via GitHub Pages (~1 minute).
@@ -17,7 +17,7 @@ Design source of truth for look & feel: the "Casa Mkali Design System" project o
 
 ## Working on it
 1. `git pull` before you start (someone else may have pushed)
-2. Edit, then preview locally: `npx serve . -l 4173` → open http://localhost:4173/site/
+2. Edit, then preview locally: `npx serve . -l 4173` → open http://localhost:4173/
 3. `git add -A && git commit -m "..." && git push` → live link updates itself
 
 ## Open TODOs

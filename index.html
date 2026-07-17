@@ -1,1 +1,165 @@
-<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=site/"><title>casa mkali</title><a href="site/">casa mkali →</a>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>casa mkali — two women.</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="cm-site.css" />
+<style>
+#intro{position:fixed;inset:0;z-index:100;background:var(--ink);color:var(--bone);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:opacity .7s ease}
+#intro.out{opacity:0;pointer-events:none}
+#intro .tw{font-weight:700;letter-spacing:-0.04em;text-transform:lowercase;font-size:clamp(40px,7vw,110px);line-height:1}
+#intro .tw .p{color:var(--flame)}
+#intro .cur{display:inline-block;width:0.07em;height:0.92em;background:var(--flame);vertical-align:-0.08em;margin-left:0.06em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+#intro .skip{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;opacity:.35}
+</style>
+<script>(function(){['image-slot.js','cm-site.js'].forEach(function(f){var s=document.createElement('script');s.src=f+location.search;s.defer=true;document.head.appendChild(s);});})();</script>
+</head>
+<body data-page="home">
+
+<div id="intro" aria-hidden="true"><div class="tw"><span id="tw-txt"></span><span class="cur"></span></div><span class="skip">click to skip</span></div>
+<script>
+(function(){
+ var el=null,intro=null,done=false;
+ function finish(){
+  if(done)return;done=true;
+  var hw=document.getElementById('hero-w'),tw=intro.querySelector('.tw');
+  var cur=intro.querySelector('.cur'),skip=intro.querySelector('.skip');
+  if(cur)cur.style.display='none';if(skip)skip.style.display='none';
+  el.innerHTML='women<span class="p">.</span>';
+  var r1=tw.getBoundingClientRect(),r2=hw.getBoundingClientRect();
+  var hs=getComputedStyle(hw);
+  tw.style.position='fixed';tw.style.left=r1.left+'px';tw.style.top=r1.top+'px';tw.style.margin='0';
+  void tw.offsetWidth;
+  tw.style.transition='left .85s cubic-bezier(.7,0,.2,1),top .85s cubic-bezier(.7,0,.2,1),font-size .85s cubic-bezier(.7,0,.2,1),line-height .85s cubic-bezier(.7,0,.2,1)';
+  tw.style.left=r2.left+'px';tw.style.top=r2.top+'px';tw.style.fontSize=hs.fontSize;tw.style.lineHeight=hs.lineHeight;
+  intro.style.transition='background .85s ease';intro.style.background='rgba(14,14,14,0)';
+  setTimeout(function(){hw.style.visibility='visible';intro.remove();},870);
+ }
+ function ready(fn){if(document.readyState!=='loading')fn();else document.addEventListener('DOMContentLoaded',fn);}
+ ready(function(){
+  intro=document.getElementById('intro');el=document.getElementById('tw-txt');
+  var navEntry=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0])||null;
+  var isReload=navEntry?navEntry.type==='reload':false;
+  var seen=false;try{seen=sessionStorage.getItem('cmIntroSeen')==='1';}catch(e){}
+  if(seen&&!isReload){intro.remove();return;}
+  try{sessionStorage.setItem('cmIntroSeen','1');}catch(e){}
+  document.getElementById('hero-w').style.visibility='hidden';
+  intro.addEventListener('click',finish);
+  var words=['consultants.','marketers.','strategists.','advisors.','creatives.'],final='women.';
+  var seq=[];
+  words.forEach(function(w){
+    for(var i=1;i<=w.length;i++)seq.push({t:w.slice(0,i),d:70});
+    seq.push({t:w,d:650});
+    for(var i=w.length-1;i>=0;i--)seq.push({t:w.slice(0,i),d:38});
+    seq.push({t:'',d:260});
+  });
+  for(var i=1;i<=final.length;i++)seq.push({t:final.slice(0,i),d:95});
+  seq.push({t:final,d:700});
+  var k=0;
+  function step(){
+    if(done)return;
+    if(k>=seq.length){finish();return;}
+    var s=seq[k++];
+    el.innerHTML=s.t.endsWith('.')?s.t.slice(0,-1)+'<span class="p">.</span>':s.t;
+    setTimeout(step,s.d);
+  }
+  setTimeout(step,400);
+ });
+})();
+</script>
+
+<section class="hero" data-screen-label="Hero">
+  <img class="hero__bg" src="uploads/BTS MKALI SEPT25-99_websize.jpg" alt="" style="object-position:center 40%;">
+  <div class="kick"><span class="dot"></span><span>Diversity in thought &amp; execution</span></div>
+  <h1 class="big"><span class="cycle" data-words='["go to market","marketing strategy","custom software","brand design","content production"]'><span>go to market</span></span> led by
+  <span id="hero-w">women<span class="flame">.</span></span></h1>
+  <p class="lede">Casa Mkali is a consultancy at the intersection of marketing, business development, creative, and go-to-market. We don't hand you a deck and leave. We find the answer, and we stay to build it.</p>
+  <div class="hero__cta"><a href="work-with-us.html" class="btn btn--lg">work with us →</a><a href="n-n.html" class="btn btn--ghost btn--lg">meet n+n</a></div>
+</section>
+
+<div class="mq" data-screen-label="Marquee">
+  <div class="mq__track">
+    <span>launching products through trusted local voices</span><span class="st">·</span><span>community over ad spend</span><span class="st">·</span><span>new markets, native entry</span><span class="st">·</span><span>partnerships that feel organic, because they are</span><span class="st">·</span>
+    <span>launching products through trusted local voices</span><span class="st">·</span><span>community over ad spend</span><span class="st">·</span><span>new markets, native entry</span><span class="st">·</span><span>partnerships that feel organic, because they are</span><span class="st">·</span>
+  </div>
+</div>
+
+<section class="sec" data-screen-label="We help businesses develop">
+  <div class="sec__top"><span class="label"><span class="n">01</span>What we do</span><span class="label dim">Consultants, with an agency option</span></div>
+  <div class="split reveal">
+    <h2 class="head">we help<br>businesses<br>develop<span class="flame">.</span></h2>
+    <div>
+      <p class="body-lg">Whether you're a corporation, a brand, or an individual, we work the whole problem: the market, the financial implications, the budget, the audience, the data, and the why behind all of it. A good campaign or go-to-market strategy is never one discipline, so we cover them all.</p>
+      <p class="body-lg muted mt-2">We are consultants first. The answer comes before the deliverables.</p>
+      <a href="n-n.html" class="btn btn--ghost mt-3" style="display:inline-flex;">LEARN MORE →</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" data-screen-label="Two ways to engage">
+  <div class="sec__top"><span class="label"><span class="n">02</span>How we engage</span><span class="label dim">Two ways in</span></div>
+  <h2 class="head reveal" style="margin-bottom:56px;">two ways to<br>engage<span class="flame">.</span></h2>
+  <div class="cards reveal">
+    <a class="card" href="n-n.html"><span class="n">01</span><h3>consult with n+n</h3><p>We diagnose, we hand you the solution, and we support the implementation with your team. Advice that doesn't leave the room with us.</p></a>
+    <a class="card" href="the-lab.html"><span class="n">02</span><h3>build with the lab</h3><p>No team to implement? Ours executes: photo, video, copy, web, automations, social. Strategy, executed under one roof.</p></a>
+  </div>
+  <div class="reveal mt-4" style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;border-top:1px solid var(--line-l);padding-top:28px;">
+    <span class="body-lg" style="font-weight:700;text-transform:lowercase;">need it fast?</span>
+    <a href="ai-services.html" class="btn">ai services →</a>
+  </div>
+</section>
+
+<section class="sec sec--ink" data-screen-label="From any angle">
+  <div class="sec__top"><span class="label"><span class="n">03</span>Where we start</span><span class="label dim">Any stage, any state</span></div>
+  <div class="split reveal">
+    <h2 class="head">from any<br>angle<span class="flame">.</span></h2>
+    <p class="body-lg" style="opacity:.75;">There is no wrong moment to bring us in. We've built from zero, turned brands mid-flight, and steadied companies in rough water.</p>
+  </div>
+  <div class="cards reveal mt-4">
+    <div class="card"><span class="n">01</span><h3>inception</h3><p>An idea and no words for it yet. We name it, shape it, take it to market.</p></div>
+    <div class="card"><span class="n">02</span><h3>pivoting</h3><p>The model changed. We reposition the brand and the pipeline to match.</p></div>
+    <div class="card"><span class="n">03</span><h3>in crisis</h3><p>Something broke. We stabilize the message and rebuild the plan.</p></div>
+    <div class="card"><span class="n">04</span><h3>new markets</h3><p>New city, new segment, new country. We build the go-to-market.</p></div>
+  </div>
+</section>
+
+<section class="sec" data-screen-label="What we believe">
+  <div class="sec__top"><span class="label"><span class="n">04</span>What we believe</span><span class="label dim">The big picture</span></div>
+  <div class="split reveal">
+    <h2 class="head">make it impossible<br>to live without<span class="flame">.</span></h2>
+    <div>
+      <p class="body-lg">People think you need an elaborate story and the best of the best promoting your product. You don't. You need a real-life application: make it attainable, make it fit into someone's life so naturally that without it they don't feel whole.</p>
+      <p class="body-lg muted mt-2">Influencers help, but a campaign is more than ads and ambassadors. We look at the big picture and find the combination of marketing, business, creative, digital, and data that crafts a compelling, actionable message. It's different every time, because great campaigns happen when someone does something new. Good campaigns are just great campaigns executed well.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" data-screen-label="On set">
+  <div class="photoband reveal">
+    <figure><img src="uploads/ROC02250_websize.jpg" alt="Almave wellness event" loading="lazy"><figcaption>FORMULA 1</figcaption></figure>
+    <figure><img src="uploads/BTS MKALI JAN26-20_websize.jpg" alt="Casa Mkali loft shoot" loading="lazy"><figcaption>DIGITAL CAMPAIGN</figcaption></figure>
+    <figure><img src="uploads/BTS MKALI JAN26-7_websize-91fb08f3.jpg" alt="Reviewing product shot on set" loading="lazy"><figcaption>PRODUCT LAUNCH</figcaption></figure>
+  </div>
+</section>
+
+<section class="sec" data-screen-label="Ownership">
+  <div class="sec__top"><span class="label"><span class="n">05</span>How we operate</span><span class="label dim">The standard</span></div>
+  <div class="split reveal">
+    <h2 class="head">we pride<br>ourselves on<br>ownership<span class="flame">.</span></h2>
+    <div>
+      <p class="body-lg">Your problem becomes our problem. We own the outcome, not the hours.</p>
+      <p class="body-lg muted mt-2">And we stay current: business development theory, negotiation, branding through current events. The thinking you get is this year's, not a framework from a decade ago.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta" data-screen-label="CTA">
+  <h2 class="reveal">let's make something<br>they can't live without<span style="opacity:.55;">.</span></h2>
+  <div class="row"><a href="work-with-us.html" class="btn btn--lg">work with us →</a><span class="mono">MEXICO CITY · MIAMI · NEW YORK · LOS ANGELES · LISBON</span></div>
+</section>
+
+</body>
+</html>
