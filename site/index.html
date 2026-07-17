@@ -41,6 +41,9 @@
  function ready(fn){if(document.readyState!=='loading')fn();else document.addEventListener('DOMContentLoaded',fn);}
  ready(function(){
   intro=document.getElementById('intro');el=document.getElementById('tw-txt');
+  var seen=false;try{seen=sessionStorage.getItem('cmIntroSeen')==='1';}catch(e){}
+  if(seen){intro.remove();return;}
+  try{sessionStorage.setItem('cmIntroSeen','1');}catch(e){}
   document.getElementById('hero-w').style.visibility='hidden';
   intro.addEventListener('click',finish);
   var words=['consultants.','marketers.','strategists.','advisors.','creatives.'],final='women.';
