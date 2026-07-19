@@ -22,7 +22,7 @@ ft.innerHTML='<div class="ft__row"><div>'+
 '<div class="ft__cols">'+
 '<div class="ft__col"><h4>mkali</h4><a href="n-n.html">n+n</a><a href="the-lab.html">the lab</a><a href="ai-services.html">ai services</a><a href="projects.html">projects</a></div>'+
 '<div class="ft__col"><h4>connect</h4><a href="work-with-us.html">work with us</a><a href="mailto:holler@casamkali.com">holler@casamkali.com</a></div>'+
-'<div class="ft__col"><h4>follow</h4><a href="#">instagram</a><a href="#">substack</a><a href="#">linkedin</a></div>'+
+'<div class="ft__col"><h4>follow</h4><a href="https://www.instagram.com/stories/lungesandlattess/" target="_blank" rel="noopener">instagram</a><a href="#">substack</a><a href="https://www.linkedin.com/in/natashamelendez/" target="_blank" rel="noopener">linkedin</a></div>'+
 '</div></div>'+
 '<div class="ft__base"><div class="c">© 2026 casa mkali</div>'+
 '<div class="c">mexico city · miami · new york · los angeles · lisbon</div></div>';
