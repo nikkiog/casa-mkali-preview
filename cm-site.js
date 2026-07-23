@@ -1,4 +1,19 @@
 /* Casa Mkali site — shared header/footer + behaviors */
+
+/* Google Analytics (GA4). Paste the real measurement id (G-…) below to activate;
+   inert while the placeholder is in place. */
+var CM_GA_ID='G-XXXXXXXXXX';
+if(CM_GA_ID.indexOf('X')===-1&&location.hostname==='casamkali.com'){
+  var gs=document.createElement('script');gs.async=true;
+  gs.src='https://www.googletagmanager.com/gtag/js?id='+CM_GA_ID;
+  document.head.appendChild(gs);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config',CM_GA_ID);
+}
+
 (function(){
 var page=document.body.getAttribute('data-page')||'';
 function on(p){return page===p?' on':''}
