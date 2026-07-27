@@ -54,6 +54,8 @@ if(cy){
 }
 
 /* reveal on scroll */
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.1});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.01});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+/* anything already on screen at load reveals immediately, no scroll needed */
+setTimeout(function(){document.querySelectorAll('.reveal:not(.in)').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0){el.classList.add('in');io.unobserve(el);}});},60);
 })();
