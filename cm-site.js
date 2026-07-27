@@ -1,9 +1,13 @@
 /* Casa Mkali site — shared header/footer + behaviors */
 
-/* Google Analytics (GA4). Paste the real measurement id (G-…) below to activate;
-   inert while the placeholder is in place. */
+/* Cookies + Google Analytics (GA4).
+   Analytics only loads on the live domain AND after the visitor accepts cookies.
+   The choice lives in localStorage as cm_cookies = 'granted' | 'denied'. */
 var CM_GA_ID='G-2CN8D4QZF7';
-if(CM_GA_ID.indexOf('X')===-1&&location.hostname==='casamkali.com'){
+function cmConsent(){try{return localStorage.getItem('cm_cookies')}catch(e){return null}}
+function cmLoadGA(){
+  if(window.cmGaLoaded||location.hostname!=='casamkali.com')return;
+  window.cmGaLoaded=true;
   var gs=document.createElement('script');gs.async=true;
   gs.src='https://www.googletagmanager.com/gtag/js?id='+CM_GA_ID;
   document.head.appendChild(gs);
@@ -13,6 +17,9 @@ if(CM_GA_ID.indexOf('X')===-1&&location.hostname==='casamkali.com'){
   gtag('js',new Date());
   gtag('config',CM_GA_ID);
 }
+if(cmConsent()==='granted')cmLoadGA();
+/* forget the stored choice (linked from cookie-policy.html) */
+window.cmCookieReset=function(){try{localStorage.removeItem('cm_cookies')}catch(e){}location.reload()};
 
 (function(){
 var page=document.body.getAttribute('data-page')||'';
@@ -40,8 +47,20 @@ ft.innerHTML='<div class="ft__row"><div>'+
 '<div class="ft__col"><h4>follow</h4><a href="https://www.instagram.com/casamkali/" target="_blank" rel="noopener">instagram</a><a href="https://casamkali.substack.com/" target="_blank" rel="noopener">substack</a><a href="https://www.linkedin.com/company/74854160/" target="_blank" rel="noopener">linkedin</a></div>'+
 '</div></div>'+
 '<div class="ft__base"><div class="c">© 2026 casa mkali</div>'+
+'<div class="c"><a href="cookie-policy.html">cookie policy</a></div>'+
 '<div class="c">mexico city · miami · new york · los angeles · lisbon</div></div>';
 document.body.appendChild(ft);
+
+/* cookie banner — shown until the visitor makes a choice */
+if(!cmConsent()){
+  var cb=document.createElement('div');cb.className='cookiebar';
+  cb.innerHTML='<p>we use cookies to understand how visitors use the site — analytics only runs if you say yes. <a href="cookie-policy.html">cookie policy</a></p>'+
+  '<div class="cookiebar__btns"><button class="btn" id="ck-yes">accept</button><button class="btn btn--no" id="ck-no">decline</button></div>';
+  document.body.appendChild(cb);
+  var choose=function(v){try{localStorage.setItem('cm_cookies',v)}catch(e){}cb.remove();if(v==='granted')cmLoadGA();};
+  document.getElementById('ck-yes').addEventListener('click',function(){choose('granted')});
+  document.getElementById('ck-no').addEventListener('click',function(){choose('denied')});
+}
 
 var b=document.getElementById('burger'),m=document.getElementById('mob');
 if(b){b.addEventListener('click',function(){m.classList.toggle('open')});}

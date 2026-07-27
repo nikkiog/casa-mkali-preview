@@ -173,3 +173,12 @@ h2.head{font-weight:700;letter-spacing:-0.035em;line-height:0.94;text-transform:
 /* reveal */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
+
+/* cookie banner */
+.cookiebar{position:fixed;left:16px;right:16px;bottom:16px;z-index:90;background:var(--ink);color:var(--bone);border:1px solid var(--line-d);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.cookiebar p{font-size:15px;line-height:1.45;max-width:62ch;opacity:.88;margin:0}
+.cookiebar a{color:var(--flame);text-decoration:underline;text-underline-offset:3px}
+.cookiebar__btns{display:flex;gap:10px;flex-shrink:0}
+.cookiebar .btn{padding:10px 22px;font-size:13px;cursor:pointer}
+.cookiebar .btn--no{background:transparent;color:var(--bone);border-color:var(--line-d)}
+.cookiebar .btn--no:hover{border-color:var(--bone)}
