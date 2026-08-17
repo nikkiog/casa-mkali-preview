@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>casa mkali — login</title>
+<meta name="description" content="Create your Casa Mkali account. Dashboards for clients, talent, ambassadors, and the CM team." />
+<meta name="robots" content="noindex" />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="cm-site.css" />
+<link rel="icon" href="favicon.ico" sizes="32x32" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<script>(function(){['image-slot.js','cm-site.js'].forEach(function(f){var s=document.createElement('script');s.src=f+location.search;s.defer=true;document.head.appendChild(s);});})();</script>
+</head>
+<body data-page="login">
+
+<section class="hero" data-screen-label="Hero">
+  <div class="kick"><span class="dot"></span><span>casa mkali portal</span></div>
+  <h1 class="big">login<span class="flame">.</span></h1>
+  <p class="lede">Dashboards for our clients, talent, ambassadors, and team. Create your account below. We review every request and email you an access link when your dashboard is ready.</p>
+</section>
+
+<section class="sec" data-screen-label="Create account">
+  <div class="sec__top"><span class="label"><span class="n">01</span>Create your account</span><span class="label dim">Takes one minute</span></div>
+  <form class="form reveal" id="signup" novalidate>
+    <div class="fld">
+      <label for="f-name">name</label>
+      <input id="f-name" name="name" type="text" autocomplete="name" required />
+    </div>
+    <div class="fld">
+      <label for="f-email">email</label>
+      <input id="f-email" name="email" type="email" autocomplete="email" required />
+    </div>
+    <div class="fld">
+      <label for="f-phone">phone</label>
+      <input id="f-phone" name="phone" type="tel" autocomplete="tel" required />
+    </div>
+    <div class="fld">
+      <label>account type</label>
+      <div class="typegrid" id="types" role="radiogroup" aria-label="account type">
+        <div class="typeopt" role="radio" aria-checked="false" tabindex="0" data-type="Ambassador/Influencer">ambassador / influencer</div>
+        <div class="typeopt" role="radio" aria-checked="false" tabindex="0" data-type="CM Team">cm team</div>
+        <div class="typeopt" role="radio" aria-checked="false" tabindex="0" data-type="Talent">talent</div>
+        <div class="typeopt" role="radio" aria-checked="false" tabindex="0" data-type="Client">client</div>
+      </div>
+    </div>
+    <button type="submit" class="btn">create account →</button>
+    <p class="form-msg err" id="form-err"></p>
+  </form>
+  <div class="reveal" id="signup-done" style="display:none;">
+    <h2 class="head">you're in<span class="flame">.</span></h2>
+    <p class="body-lg muted mt-2" style="max-width:44ch;">We got your request. We review every account by hand, and you'll get an email from us with your access link when your dashboard is ready.</p>
+    <p class="mono mt-3">questions? <a href="mailto:holler@casamkali.com" class="flame" style="text-transform:none;letter-spacing:.06em;">holler@casamkali.com</a></p>
+  </div>
+</section>
+
+<script>
+(function(){
+  function ready(fn){if(document.readyState!=='loading')fn();else document.addEventListener('DOMContentLoaded',fn);}
+  ready(function(){
+    var selected='';
+    var opts=document.querySelectorAll('.typeopt');
+    function pick(el){
+      opts.forEach(function(o){o.classList.remove('sel');o.setAttribute('aria-checked','false');});
+      el.classList.add('sel');el.setAttribute('aria-checked','true');
+      selected=el.getAttribute('data-type');
+    }
+    opts.forEach(function(o){
+      o.addEventListener('click',function(){pick(o);});
+      o.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();pick(o);}});
+    });
+    var form=document.getElementById('signup');
+    var err=document.getElementById('form-err');
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      err.classList.remove('show');
+      var name=document.getElementById('f-name').value.trim();
+      var email=document.getElementById('f-email').value.trim();
+      var phone=document.getElementById('f-phone').value.trim();
+      if(!name||!email.match(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)||!phone){err.textContent='please fill in your name, a valid email, and phone';err.classList.add('show');return;}
+      if(!selected){err.textContent='please pick an account type';err.classList.add('show');return;}
+      var btn=form.querySelector('.btn');btn.disabled=true;btn.textContent='creating…';
+      var body=new URLSearchParams({name:name,email:email,phone:phone,accountType:selected,source:'casamkali.com'});
+      fetch('https://hooks.airtable.com/workflows/v1/genericWebhook/appgZMMppWDR1mqph/wflGFgUY07It6zemr/wtr79xbj1G6O2O51q',{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()})
+      .then(function(){form.style.display='none';document.getElementById('signup-done').style.display='block';})
+      .catch(function(){btn.disabled=false;btn.textContent='create account →';err.textContent='something went wrong, please try again or email holler@casamkali.com';err.classList.add('show');});
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

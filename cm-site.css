@@ -182,3 +182,19 @@ h2.head{font-weight:700;letter-spacing:-0.035em;line-height:0.94;text-transform:
 .cookiebar .btn{padding:10px 22px;font-size:13px;cursor:pointer}
 .cookiebar .btn--no{background:transparent;color:var(--bone);border-color:var(--line-d)}
 .cookiebar .btn--no:hover{border-color:var(--bone)}
+
+/* portal signup form */
+.form{max-width:600px}
+.fld{margin-bottom:24px}
+.fld label{display:block;font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;color:var(--ash-l)}
+.fld input{width:100%;background:transparent;border:1px solid var(--line-l);padding:15px 16px;font-family:var(--sans);font-size:17px;color:var(--ink);border-radius:0;-webkit-appearance:none}
+.fld input:focus{outline:none;border-color:var(--flame)}
+.typegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:480px){.typegrid{grid-template-columns:1fr}}
+.typeopt{border:1px solid var(--line-l);padding:16px 12px;cursor:pointer;font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;text-align:center;user-select:none;transition:background .15s,color .15s,border-color .15s}
+.typeopt:hover{border-color:var(--ink)}
+.typeopt.sel{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.form .btn{border:0;cursor:pointer;font-size:15px;padding:18px 36px}
+.form-msg{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-top:18px;display:none}
+.form-msg.show{display:block}
+.form-msg.err{color:var(--flame)}
