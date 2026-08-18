@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /site/
+Disallow: /portal/
 
 Sitemap: https://casamkali.com/sitemap.xml

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>cm portal · login</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="portal.css" />
+</head>
+<body>
+
+<header class="tb"><div class="tb__in">
+  <div><a class="wm tb__wm" href="index.html">casa<b>mkali</b><span class="dot">.</span></a><span class="tb__tag">portal</span></div>
+  <div class="tb__user"><a class="mono" href="index.html">← framework</a></div>
+</div></header>
+
+<div class="wrap">
+  <div class="login">
+    <div class="kick"><span class="dot"></span><span>portal.casamkali.com</span></div>
+    <h1 class="big">login<span class="flame">.</span></h1>
+    <p class="lede">Invite only. Creators and team members receive their invite from Casa Mkali. There is no public signup.</p>
+
+    <form class="sec" onsubmit="return go(event)">
+      <div class="fld"><label>email</label><input id="em" type="email" placeholder="you@example.com" /></div>
+      <div class="fld"><label>password</label><input id="pw" type="password" placeholder="••••••••" /></div>
+      <button class="btn" type="submit">log in →</button>
+      <p class="mono err" id="err" style="margin-top:16px">enter your email to continue</p>
+      <p class="mono dim" style="margin-top:22px">no invite yet? ask your cm contact · invites are sent from the team side only</p>
+    </form>
+  </div>
+  <div class="mocknote">mockup · demo build · any @casamkali.com address opens the cm team side, any other email walks the creator side · demo password: cmportal-demo · real authentication ships with the supabase build</div>
+</div>
+
+<script>
+function go(e){
+  e.preventDefault();
+  var em=document.getElementById('em').value.trim().toLowerCase();
+  var pw=document.getElementById('pw').value;
+  var err=document.getElementById('err');
+  if(!em||!pw){err.textContent='enter your email and password to continue';err.style.display='block';return false;}
+  if(pw!=='cmportal-demo'){err.textContent='demo password required · see the note below';err.style.display='block';return false;}
+  if(em.indexOf('@casamkali.com')>-1){location.href='admin.html';}
+  else{location.href='welcome.html';}
+  return false;
+}
+</script>
+</body>
+</html>
