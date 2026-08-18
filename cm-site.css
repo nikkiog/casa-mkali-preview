@@ -198,3 +198,9 @@ h2.head{font-weight:700;letter-spacing:-0.035em;line-height:0.94;text-transform:
 .form-msg{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-top:18px;display:none}
 .form-msg.show{display:block}
 .form-msg.err{color:var(--flame)}
+
+/* photography: rests in B&W, blooms to color on hover/tap */
+.pj img,.tile__ph img,.splitimg{transition:filter .45s ease}
+.pj:hover img{filter:grayscale(0) contrast(1.03) !important}
+.tile:hover .tile__ph img{filter:grayscale(0) contrast(1.03) !important}
+.split:hover img[style*="grayscale"]{filter:grayscale(0) contrast(1.03) !important}
