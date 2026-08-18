@@ -41,7 +41,7 @@ document.body.insertBefore(hd,document.body.firstChild);
 var ft=document.createElement('footer');ft.className='ft';
 ft.innerHTML='<div class="ft__row"><div>'+
 '<div class="wm ft__wm">casa<b>mkali</b><span class="flame">.</span></div>'+
-'<p class="ft__tag">a consultancy at the intersection of marketing, business development, creative, and go-to-market.</p></div>'+
+'<p class="ft__tag">a female-owned brand lab. we don\'t just build brands. we create their DNA, turning founders with vision into brands with presence.</p></div>'+
 '<div class="ft__cols">'+
 '<div class="ft__col"><h4>mkali</h4><a href="n-n.html">n+n</a><a href="the-lab.html">the lab</a><a href="ai-services.html">ai services</a><a href="projects.html">projects</a></div>'+
 '<div class="ft__col"><h4>connect</h4><a href="work-with-us.html">work with us</a><a href="mailto:holler@casamkali.com">holler@casamkali.com</a></div>'+
