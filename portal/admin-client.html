@@ -27,14 +27,18 @@
       </div>
       <div class="card">
         <span class="k">story arcs · modules creators can choose</span>
-        <div class="pillrow">
+        <div class="pillrow" id="arclist">
           <span class="pill on">minerals</span>
           <span class="pill on">hero products</span>
           <span class="pill on">the story of sebi</span>
           <span class="pill on">problem → solution</span>
           <span class="pill">events</span>
         </div>
-        <a class="btn btn--ghost btn--sm" style="margin-top:16px" href="module.html">edit a module →</a>
+        <div class="addrow">
+          <input type="text" id="newarc" placeholder="add a story arc" onkeydown="if(event.key==='Enter'){event.preventDefault();cmAddPill('arclist','newarc');}" />
+          <button class="btn btn--sm" type="button" onclick="cmAddPill('arclist','newarc')">add →</button>
+        </div>
+        <a class="btn btn--ghost btn--sm" style="margin-top:14px" href="module.html">edit a module →</a>
       </div>
       <div class="card">
         <span class="k">do's and don'ts · shown on every module</span>
@@ -52,12 +56,17 @@
       </div>
       <div class="card">
         <span class="k">products creators can request</span>
-        <div class="pillrow">
+        <div class="pillrow" id="productlist">
           <span class="pill on">sea moss capsules</span>
           <span class="pill on">bio ferro</span>
           <span class="pill on">bromide plus</span>
           <span class="pill">smoothie kit</span>
         </div>
+        <div class="addrow">
+          <input type="text" id="newproduct" placeholder="add a product" onkeydown="if(event.key==='Enter'){event.preventDefault();cmAddPill('productlist','newproduct');}" />
+          <button class="btn btn--sm" type="button" onclick="cmAddPill('productlist','newproduct')">add →</button>
+        </div>
+        <p class="note">every client has its own product list · click one to switch it on or off for their creators</p>
       </div>
       <div class="card">
         <span class="k">from the lab</span>

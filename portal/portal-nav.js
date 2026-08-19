@@ -48,3 +48,23 @@
   var t = document.getElementById('sidetoggle');
   if(t) t.addEventListener('click', function(){ side.classList.toggle('open'); });
 })();
+
+/* pills: click to switch on/off · add-to-list inputs */
+(function(){
+  document.addEventListener('click', function(e){
+    var p = e.target.closest('.pill');
+    if(p && !p.hasAttribute('data-static')){ p.classList.toggle('on'); }
+  });
+  window.cmAddPill = function(listId, inputId){
+    var list = document.getElementById(listId), input = document.getElementById(inputId);
+    if(!list || !input) return;
+    var v = input.value.trim();
+    if(!v) { input.focus(); return; }
+    var s = document.createElement('span');
+    s.className = 'pill on';
+    s.textContent = v.toLowerCase();
+    list.appendChild(s);
+    input.value = '';
+    input.focus();
+  };
+})();
