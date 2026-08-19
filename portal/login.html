@@ -35,13 +35,13 @@
 <script>
 function go(e){
   e.preventDefault();
-  var em=document.getElementById('em').value.trim().toLowerCase();
-  var pw=document.getElementById('pw').value;
-  var err=document.getElementById('err');
-  if(!em||!pw){err.textContent='enter your email and password to continue';err.style.display='block';return false;}
-  if(pw!=='cmportal-demo'){err.textContent='demo password required · see the note below';err.style.display='block';return false;}
-  if(em.indexOf('@casamkali.com')>-1){location.href='admin.html';}
-  else{location.href='welcome.html';}
+  var em=document.getElementById("em").value.trim().toLowerCase();
+  var pw=document.getElementById("pw").value;
+  var err=document.getElementById("err");
+  if(!em||!pw){err.textContent="enter your email and password to continue";err.style.display="block";return false;}
+  if(pw!=="cmportal-demo"){err.textContent="demo password required · see the note below";err.style.display="block";return false;}
+  if(em.indexOf("@casamkali.com")>-1){location.href="admin.html";}
+  else{location.href="welcome.html";}
   return false;
 }
 </script>
