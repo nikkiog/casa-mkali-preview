@@ -12,36 +12,46 @@
 
 <header class="tb"><div class="tb__in">
   <div><a class="wm tb__wm" href="index.html">casa<b>mkali</b><span class="dot">.</span></a><span class="tb__tag">portal</span></div>
-  <div class="tb__user"><a class="mono" href="index.html">← framework</a></div>
+  <div class="tb__user"><a class="mono" href="index.html">← change login type</a></div>
 </div></header>
 
 <div class="wrap">
   <div class="login">
-    <div class="kick"><span class="dot"></span><span>portal.casamkali.com</span></div>
-    <h1 class="big">login<span class="flame">.</span></h1>
-    <p class="lede">Invite only. Creators and team members receive their invite from Casa Mkali. There is no public signup.</p>
+    <div class="kick"><span class="dot"></span><span id="roleLabel">portal login</span></div>
+    <h1 class="big">log in<span class="flame">.</span></h1>
+    <p class="lede" id="roleBlurb">Invite only. Your access comes from Casa Mkali.</p>
 
     <form class="sec" onsubmit="return go(event)">
       <div class="fld"><label>email</label><input id="em" type="email" placeholder="you@example.com" /></div>
       <div class="fld"><label>password</label><input id="pw" type="password" placeholder="••••••••" /></div>
       <button class="btn" type="submit">log in →</button>
-      <p class="mono err" id="err" style="margin-top:16px">enter your email to continue</p>
-      <p class="mono dim" style="margin-top:22px">no invite yet? ask your cm contact · invites are sent from the team side only</p>
+      <p class="mono err" id="err" style="margin-top:16px"></p>
+      <p class="mono dim" style="margin-top:22px">no invite yet? <a class="flame" href="https://casamkali.com/work-with-us.html">get in touch</a> · invites are sent by casa mkali</p>
     </form>
   </div>
-  <div class="mocknote">mockup · demo build · any @casamkali.com address opens the cm team side, any other email walks the creator side · demo password: cmportal-demo · real authentication ships with the supabase build</div>
+  <div class="mocknote" id="note">mockup · demo build · real authentication ships with the supabase build</div>
 </div>
 
 <script>
+var role=(new URLSearchParams(location.search).get('role')||'creator').toLowerCase();
+var copy={
+  team:{label:'cm team login',blurb:'Manage creators, invites, reviews, and approvals.',dest:'admin.html'},
+  creator:{label:'creator + ambassador login',blurb:'Your deliverables, the creator hub, requests, and payment status.',dest:'welcome.html'},
+  client:{label:'client login',blurb:'Your campaigns, deliverables, and reporting.',dest:'client.html'}
+};
+var cfg=copy[role]||copy.creator;
+document.getElementById('roleLabel').textContent=cfg.label;
+document.getElementById('roleBlurb').textContent=cfg.blurb;
+document.getElementById('note').textContent='mockup · demo build · demo password: cmportal-demo · real authentication ships with the supabase build';
 function go(e){
   e.preventDefault();
-  var em=document.getElementById("em").value.trim().toLowerCase();
-  var pw=document.getElementById("pw").value;
-  var err=document.getElementById("err");
-  if(!em||!pw){err.textContent="enter your email and password to continue";err.style.display="block";return false;}
-  if(pw!=="cmportal-demo"){err.textContent="demo password required · see the note below";err.style.display="block";return false;}
-  if(em.indexOf("@casamkali.com")>-1){location.href="admin.html";}
-  else{location.href="welcome.html";}
+  var em=document.getElementById('em').value.trim().toLowerCase();
+  var pw=document.getElementById('pw').value;
+  var err=document.getElementById('err');
+  if(!em||!pw){err.textContent='enter your email and password to continue';err.style.display='block';return false;}
+  if(pw!=='cmportal-demo'){err.textContent='demo password required · see the note below';err.style.display='block';return false;}
+  if(role==='team'&&em.indexOf('@casamkali.com')===-1){err.textContent='team login needs a casamkali.com address';err.style.display='block';return false;}
+  location.href=cfg.dest;
   return false;
 }
 </script>

@@ -45,7 +45,7 @@ ft.innerHTML='<div class="ft__row"><div>'+
 '<p class="ft__tag">a female-owned brand lab. we don\'t just build brands. we create their DNA, turning founders with vision into brands with presence.</p></div>'+
 '<div class="ft__cols">'+
 '<div class="ft__col"><h4>mkali</h4><a href="n-n.html">n+n</a><a href="the-lab.html">the lab</a><a href="ai-services.html">ai services</a><a href="projects.html">projects</a><a href="blog/">notes</a></div>'+
-'<div class="ft__col"><h4>connect</h4><a href="work-with-us.html">work with us</a><a href="mailto:holler@casamkali.com">holler@casamkali.com</a></div>'+
+'<div class="ft__col"><h4>connect</h4><a href="work-with-us.html">work with us</a><a href="mailto:holler@casamkali.com">holler@casamkali.com</a><a href="portal/index.html">portal</a></div>'+
 '<div class="ft__col"><h4>follow</h4><a href="https://www.instagram.com/casamkali/" target="_blank" rel="noopener">instagram</a><a href="https://casamkali.substack.com/" target="_blank" rel="noopener">substack</a><a href="https://www.linkedin.com/company/74854160/" target="_blank" rel="noopener">linkedin</a></div>'+
 '</div></div>'+
 '<div class="ft__base"><div class="c">© 2026 casa mkali</div>'+
