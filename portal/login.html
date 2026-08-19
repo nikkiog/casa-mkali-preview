@@ -18,22 +18,24 @@
 <div class="wrap">
   <div class="login">
     <div class="kick"><span class="dot"></span><span id="roleLabel">portal login</span></div>
-    <h1 class="big">log in<span class="flame">.</span></h1>
+    <h1 class="big" id="head">log in<span class="flame">.</span></h1>
     <p class="lede" id="roleBlurb">Invite only. Your access comes from Casa Mkali.</p>
 
     <form class="sec" onsubmit="return go(event)">
-      <div class="fld"><label>email</label><input id="em" type="email" placeholder="you@example.com" /></div>
-      <div class="fld"><label>password</label><input id="pw" type="password" placeholder="••••••••" /></div>
-      <button class="btn" type="submit">log in →</button>
+      <div class="fld"><label id="emLabel">email</label><input id="em" type="email" placeholder="you@example.com" /></div>
+      <div class="fld"><label id="pwLabel">password</label><input id="pw" type="password" placeholder="••••••••" /></div>
+      <button class="btn" type="submit" id="btn">log in →</button>
       <p class="mono err" id="err" style="margin-top:16px"></p>
-      <p class="mono dim" style="margin-top:22px">no invite yet? <a class="flame" href="https://casamkali.com/work-with-us.html">get in touch</a> · invites are sent by casa mkali</p>
+      <p class="mono dim" style="margin-top:22px">no invite yet? <a class="flame" href="https://casamkali.com/work-with-us.html">get in touch</a> · invites are sent by casa mkali from holler@casamkali.com</p>
     </form>
   </div>
-  <div class="mocknote" id="note">mockup · demo build · real authentication ships with the supabase build</div>
+  <div class="mocknote" id="note"></div>
 </div>
 
 <script>
-var role=(new URLSearchParams(location.search).get('role')||'creator').toLowerCase();
+var q=new URLSearchParams(location.search);
+var role=(q.get('role')||'creator').toLowerCase();
+var first=q.get('first')==='1';
 var copy={
   team:{label:'cm team login',blurb:'Manage creators, invites, reviews, and approvals.',dest:'admin.html'},
   creator:{label:'creator + ambassador login',blurb:'Your deliverables, the creator hub, requests, and payment status.',dest:'welcome.html'},
@@ -42,13 +44,27 @@ var copy={
 var cfg=copy[role]||copy.creator;
 document.getElementById('roleLabel').textContent=cfg.label;
 document.getElementById('roleBlurb').textContent=cfg.blurb;
-document.getElementById('note').textContent='mockup · demo build · demo password: cmportal-demo · real authentication ships with the supabase build';
+if(first){
+  document.getElementById('head').innerHTML='first sign-in<span class="flame">.</span>';
+  document.getElementById('roleBlurb').textContent='Use the email this invite arrived on and the temporary password from it. You will choose your own password next.';
+  document.getElementById('pwLabel').textContent='temporary password';
+  document.getElementById('pw').placeholder='from your invite email';
+  document.getElementById('btn').textContent='continue →';
+}
+document.getElementById('note').textContent = first
+  ? 'mockup · demo temporary password: cm-8fk2mq'
+  : 'mockup · demo password: cmportal-demo · real authentication ships with the supabase build';
 function go(e){
   e.preventDefault();
   var em=document.getElementById('em').value.trim().toLowerCase();
   var pw=document.getElementById('pw').value;
   var err=document.getElementById('err');
   if(!em||!pw){err.textContent='enter your email and password to continue';err.style.display='block';return false;}
+  if(first){
+    if(pw!=='cm-8fk2mq'){err.textContent='that temporary password is not right · check your invite email';err.style.display='block';return false;}
+    location.href='set-password.html?role='+role+'&email='+encodeURIComponent(em);
+    return false;
+  }
   if(pw!=='cmportal-demo'){err.textContent='demo password required · see the note below';err.style.display='block';return false;}
   if(role==='team'&&em.indexOf('@casamkali.com')===-1){err.textContent='team login needs a casamkali.com address';err.style.display='block';return false;}
   location.href=cfg.dest;
