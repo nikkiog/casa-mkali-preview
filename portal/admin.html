@@ -4,30 +4,58 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex, nofollow" />
-<title>cm portal · team · creators</title>
+<title>cm portal · team · overview</title>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="portal.css" />
+<script src="portal-nav.js" defer></script>
 </head>
-<body>
-
-<header class="tb"><div class="tb__in">
-  <div><a class="wm tb__wm" href="index.html">casa<b>mkali</b><span class="dot">.</span></a><span class="tb__tag">portal · cm team</span></div>
-  <div class="tb__user"><span class="hide-m">cm team</span><span class="avatar">n</span></div>
-</div></header>
+<body data-admin="overview">
 
 <div class="wrap">
-  <div class="kick"><span class="dot"></span><span>creator management · dr. sebi's cell food</span></div>
-  <h1 class="big">creators<span class="flame">.</span></h1>
+
+  <div class="kick"><span class="dot"></span><span>all clients · august</span></div>
+  <h1 class="big">overview<span class="flame">.</span></h1>
 
   <div class="stats">
-    <div class="stat"><span class="n">2</span><span class="l">active creators</span></div>
-    <div class="stat"><span class="n">2</span><span class="l">onboarded ✓</span></div>
-    <div class="stat warn"><span class="n">1</span><span class="l">post to review</span></div>
-    <div class="stat warn"><span class="n">1</span><span class="l">invoice to collect</span></div>
+    <div class="stat"><span class="n">1</span><span class="l">active client</span></div>
+    <div class="stat"><span class="n">2</span><span class="l">creators</span></div>
+    <div class="stat"><span class="n">7</span><span class="l">posts this month</span></div>
+    <div class="stat warn"><span class="n">3</span><span class="l">need you</span></div>
   </div>
 
   <section class="sec">
-    <div class="sec__top"><span class="label"><span class="n">01</span>Roster</span><span class="label dim">click a creator to manage</span></div>
+    <div class="sec__top"><span class="label"><span class="n">01</span>Needs you</span><span class="label dim">across every client</span></div>
+    <div class="qcard">
+      <div class="grow"><span class="t">story awaiting review</span><span class="sub">carlos lozano · dr. sebi's cell food · submitted yesterday</span></div>
+      <a class="btn btn--sm" href="admin-queue.html">review →</a>
+    </div>
+    <div class="qcard">
+      <div class="grow"><span class="t">product request</span><span class="sub">carlos lozano · bio ferro · dr. sebi's cell food</span></div>
+      <a class="btn btn--sm" href="admin-requests.html">approve →</a>
+    </div>
+    <div class="qcard">
+      <div class="grow"><span class="t">invoice not submitted</span><span class="sub">dorian nicholson · dr. sebi's cell food · month closing</span></div>
+      <a class="btn btn--ghost btn--sm" href="admin-invoices.html">nudge →</a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__top"><span class="label"><span class="n">02</span>By client</span><span class="label dim">creators and output</span></div>
+    <a class="clientcard" href="admin-client.html">
+      <div class="grow"><h3>dr. sebi's cell food</h3><span class="sub">creator program · minerals, hero products, story of sebi, problem → solution</span></div>
+      <div><span class="num">2</span><span class="numl">creators</span></div>
+      <div><span class="num">7</span><span class="numl">posts</span></div>
+      <div><span class="num">1</span><span class="numl">to review</span></div>
+      <span class="chip">manage →</span>
+    </a>
+    <div class="clientcard" style="opacity:.55">
+      <div class="grow"><h3>add your next client</h3><span class="sub">each client gets its own creator roster, hub, and documents</span></div>
+      <a class="btn btn--ghost btn--sm" href="admin-clients.html">add client →</a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__top"><span class="label"><span class="n">03</span>Creators across clients</span><span class="label dim">everyone, everywhere</span></div>
     <div class="roster">
       <a class="rr" href="admin-creator.html">
         <div class="who">carlos lozano<span class="sub">dr. sebi's cell food · minerals arc</span></div>
@@ -37,54 +65,15 @@
       </a>
       <a class="rr" href="admin-creator.html">
         <div class="who">dorian nicholson<span class="sub">dr. sebi's cell food · hero products arc</span></div>
-        <span class="mono hide-m">active · video in progress · stories on track</span>
+        <span class="mono hide-m">active · video in progress</span>
         <span class="mono hide-m flame">invoice not submitted</span>
         <span class="chip">manage →</span>
       </a>
     </div>
   </section>
 
-  <section class="sec">
-    <div class="sec__top"><span class="label"><span class="n">02</span>Invites</span><span class="label dim">the only way in</span></div>
-    <div class="split2">
-      <div class="card">
-        <span class="k">invite a creator</span>
-        <div class="fld" style="margin-top:14px"><label>email</label><input type="email" placeholder="creator@example.com" /></div>
-        <div class="fld"><label>program</label><select><option>dr. sebi's cell food</option><option>kirin</option><option>almave</option></select></div>
-        <div class="fld"><label>starting story arc</label><select><option>minerals</option><option>hero products</option><option>the story of sebi</option><option>problem → solution</option></select></div>
-        <button class="btn">send creator invite →</button>
-        <p class="mono dim" style="margin-top:14px">sends a welcome from holler@casamkali.com with their login email, a temporary password, and a link to the creator login · <a class="flame" href="emails.html">see the email</a></p>
-      </div>
-      <div class="card">
-        <span class="k">invite a cm team member</span>
-        <div class="fld" style="margin-top:14px"><label>email</label><input type="email" placeholder="teammate@casamkali.com" /></div>
-        <div class="fld"><label>role</label><select><option>admin · full access</option><option>coordinator · manage creators</option></select></div>
-        <button class="btn">send team invite →</button>
-        <p class="mono dim" style="margin-top:14px">sends an invite from holler@casamkali.com with a temporary password · they set their own on first login · team accounts exist only by invite from here · <a class="flame" href="emails.html">see the email</a></p>
-      </div>
-    </div>
-    <div class="sec" style="margin-top:28px">
-      <div class="rowline"><div><span class="t">pending creator invite</span> <span class="sub">sent aug 16 · temporary password not yet used</span></div><span class="chip flame">not accepted · resend</span></div>
-      <div class="rowline"><div><span class="t">carlos lozano</span> <span class="sub">invited aug 12 · set his own password aug 12</span></div><span class="chip ok">active ✓</span></div>
-    </div>
-  </section>
+  <div class="mocknote">mockup · statuses are illustrative, not live data</div>
 
-  <section class="sec">
-    <div class="sec__top"><span class="label"><span class="n">03</span>Creator referrals</span><span class="label dim">recommended by our creators</span></div>
-    <div class="qcard">
-      <div class="grow"><span class="t">@plantbasedmiri</span><span class="sub">referred by carlos · "makes clean smoothie content, big engagement, already loves the brand"</span></div>
-      <a class="btn btn--sm" href="#">invite →</a>
-      <a class="btn btn--ghost btn--sm" href="#">pass</a>
-    </div>
-    <div class="qcard">
-      <div class="grow"><span class="t">@wellness.ant</span><span class="sub">referred by dorian · "fitness + food storytelling, miami based"</span></div>
-      <a class="btn btn--sm" href="#">invite →</a>
-      <a class="btn btn--ghost btn--sm" href="#">pass</a>
-    </div>
-    <p class="mono dim" style="margin-top:6px">referrals arrive from the creator dashboard · inviting from here keeps the invite-only rule intact</p>
-  </section>
-
-  <div class="mocknote">mockup · statuses shown are illustrative, not live data</div>
 </div>
 </body>
 </html>
